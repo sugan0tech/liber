@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import panel.Sample;
 
 public class LiberManagementSystem {
+	private static boolean sessionFlag;
 	public static void main(String[] args) {
 		Frame frame = new Frame();
 		// sample panel will be removed
