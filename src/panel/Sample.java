@@ -1,5 +1,6 @@
 package panel;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
@@ -14,6 +15,10 @@ public class Sample implements PanelService {
 		label = new Label("Sample Label");
 		label.setBounds(20, 20, 100, 20);
 		panel.add(label);
+		Button btn = new Button("HI");
+		btn.setBounds(20, 40, 100, 20);
+		panel.add(btn);
+		panel.setLayout(null);
 	}
 
 	@Override
