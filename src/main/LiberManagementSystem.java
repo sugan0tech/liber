@@ -4,9 +4,12 @@ import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import panel.Sample;
+
 public class LiberManagementSystem {
 	public static void main(String[] args) {
 		Frame frame = new Frame();
+		frame.add(new Sample().getPanel());
 		frame.setSize(1000, 1000);
 		frame.setLayout(null);
 		frame.setVisible(true);
