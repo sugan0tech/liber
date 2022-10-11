@@ -19,10 +19,11 @@ import repository.LoginRepository;
 
 public class LiberManagementSystem {
 
-	private static boolean sessionFlag = false;
+	private boolean sessionFlag = false;
 	
 
 	public static void main(String[] args) throws Exception {
+		LiberManagementSystem liberManagementSystem = new LiberManagementSystem();
 		Frame frame = new Frame();
 		// sample panel will be removed
 		
@@ -38,18 +39,15 @@ public class LiberManagementSystem {
 		menu.add(bookIssue);
 		
 		login.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
-				frame.add(new LoginPanel().getPanel());
-				
+				frame.add(new LoginPanel(liberManagementSystem).getPanel());
 			}
 		});
 		
 		bookManager.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
@@ -59,20 +57,16 @@ public class LiberManagementSystem {
 			}
 		});
 		bookReturn.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new ReturnBookPanel().getPanel());
-				
 			}
 		});
 		bar.add(menu);
 
 		frame.add(new Sample().getPanel());
-		
-		LoginRepository test = new LoginRepository(new LiberMainJDBC(), "selva", "selva");
 		
 		// set border size as 20 for each panel
 		frame.setSize(1000, 1000);
@@ -86,5 +80,12 @@ public class LiberManagementSystem {
 				frame.dispose();
 			}
 		});
+		
 	}
+	public boolean getFlag() {
+		return this.sessionFlag;
+	}
+		public void setFlag(boolean flag) {
+			this.sessionFlag = flag;
+		}
 }
