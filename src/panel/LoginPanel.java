@@ -18,25 +18,25 @@ public class LoginPanel implements PanelService {
 	private Button submitButton;
 	public LoginPanel() {
 		panel = new Panel(); 
-		panel.setBackground(Color.green);
+		panel.setBackground(Color.gray);
 		panel.setBounds(20, 20, 960, 940);
 		label = new Label("Login");
-		label.setBounds(20, 20, 100, 20);
+		label.setBounds(20, 20, 100, 30);
 		
 		nameLabel = new Label("Enter the user name :");
-		nameLabel.setBounds(20, 80, 200, 25);
+		nameLabel.setBounds(20, 80, 200, 30);
 		
 		userNameField = new TextField();
-		userNameField.setBounds(20, 100, 200, 25);
+		userNameField.setBounds(20, 110, 200, 30);
 		
 		passwordLabel = new Label("Enter the password :");
-		passwordLabel.setBounds(20, 120, 200, 25);
+		passwordLabel.setBounds(20, 140, 200, 30);
 
 		userPasswordField = new TextField();
-		userPasswordField.setBounds(20, 140, 200, 25);
+		userPasswordField.setBounds(20, 170, 200, 30);
 		
 		submitButton = new Button("Login");
-		submitButton.setBounds(140, 200, 60, 25);
+		submitButton.setBounds(140, 230, 60, 30);
 		submitButton.addActionListener(new ActionListener() {
 			
 			@Override

@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import panel.LoginPanel;
+import panel.ManageBookPanel;
+import panel.ReturnBookPanel;
 import panel.Sample;
 
 public class LiberManagementSystem {
@@ -23,15 +25,17 @@ public class LiberManagementSystem {
 		// sample panel will be removed
 		
 		MenuBar bar = new MenuBar();
-		Menu login = new Menu("login");
-		bar.add(login);
-		Menu bookManager = new Menu("book Manager");
-		bar.add(bookManager);
-		Menu bookIssue = new Menu("book issue");
-		bar.add(bookIssue);
-		Menu bookReturn = new Menu("book Return");
-		MenuItem item = new MenuItem("Test check");
-		item.addActionListener(new ActionListener() {
+		Menu menu = new Menu("menu");
+		MenuItem login = new MenuItem("login");
+		menu.add(login);
+		MenuItem bookManager = new MenuItem("book manager");
+		menu.add(bookManager);
+		MenuItem bookReturn = new MenuItem("return book");
+		menu.add(bookReturn);
+		MenuItem bookIssue = new MenuItem("book issue");
+		menu.add(bookIssue);
+		
+		login.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -41,8 +45,28 @@ public class LiberManagementSystem {
 				
 			}
 		});
-		bookReturn.add(item);
-		bar.add(bookReturn);
+		
+		bookManager.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Panel comp = (Panel) frame.getComponentAt(20, 20);
+				frame.remove(comp);
+				frame.add(new ManageBookPanel().getPanel());
+				
+			}
+		});
+		bookReturn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Panel comp = (Panel) frame.getComponentAt(20, 20);
+				frame.remove(comp);
+				frame.add(new ReturnBookPanel().getPanel());
+				
+			}
+		});
+		bar.add(menu);
 
 		frame.add(new Sample().getPanel());
 		
