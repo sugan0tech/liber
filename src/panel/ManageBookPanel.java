@@ -8,11 +8,14 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import repository.bookRepository;
+
 
 public class ManageBookPanel implements PanelService {
 	private Panel panel;
 	private Label label;
 	private TextField tf;
+	bookRepository obj = new bookRepository();
 	public ManageBookPanel() {
 		panel = new Panel(); 
 		panel.setBackground(Color.gray);
@@ -39,10 +42,10 @@ public class ManageBookPanel implements PanelService {
 	}
 	private class ButtonClickListener implements ActionListener{
 	      public void actionPerformed(ActionEvent e) {
-	    	  if(tf.getText().equals("12345"))
-	    		  panel.add(new AddBookPanel().getPanel());
+	    	  if(obj.checkBook(tf.getText()))
+	    		  panel.add(new UpdateBookPanel(tf.getText()).getPanel());
 	    	  else
-	    		  panel.add(new UpdateBookPanel().getPanel());
+	    		  panel.add(new AddBookPanel().getPanel());
 	      }		
 	   }
 

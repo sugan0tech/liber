@@ -1,6 +1,6 @@
 package panel;
 
-import static javax.swing.JOptionPane.showMessageDialog;
+import repository.bookRepository;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -14,8 +14,10 @@ import java.awt.event.ActionListener;
 
 public class UpdateBookPanel implements PanelService {
 	private Panel panel;
-	private Label label;
-	public UpdateBookPanel() {
+	private Label ISBN;
+	private TextField stock;
+	bookRepository obj = new bookRepository();
+	public UpdateBookPanel(String ISBN_Number) {
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#D8D9CF"));
 		panel.setBounds(0, 160, 960, 940);
@@ -24,21 +26,21 @@ public class UpdateBookPanel implements PanelService {
 		Label ISBNLabel = new Label("ISBN Number:");
 		ISBNLabel.setBounds(100, 90, 100, 20);
 		panel.add(ISBNLabel);
-		Label ISBN = new Label("12345");
+		ISBN = new Label(ISBN_Number);
 		ISBN.setBounds(210, 90, 100, 20);
 		panel.add(ISBN);
 		
 		Label NameLabel = new Label("Book Title:");
 		NameLabel.setBounds(100, 130, 100, 20);
 		panel.add(NameLabel);
-		Label Name = new Label("Harry Potter");
+		Label Name = new Label(obj.getBookName(ISBN_Number));
 		Name.setBounds(210, 130, 100, 20);
 		panel.add(Name);
 		
 		Label stockLabel = new Label("Stock");
 		stockLabel.setBounds(100, 170, 100, 20);
 		panel.add(stockLabel);
-		TextField stock = new TextField();
+		stock = new TextField();
 		stock.setBounds(210,170,100,30);
 		panel.add(stock);
 		
@@ -54,7 +56,7 @@ public class UpdateBookPanel implements PanelService {
 	}
 	private class ButtonClickListener implements ActionListener{
 	      public void actionPerformed(ActionEvent e) {
-	    	  System.out.println("Added Successfully!");
+	    	  obj.updateStock(ISBN.getText(), stock.getText());
 	      }		
 	   }
 
