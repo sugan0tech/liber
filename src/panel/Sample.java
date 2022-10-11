@@ -15,7 +15,7 @@ public class Sample implements PanelService {
 		label = new Label("Sample Label");
 		label.setBounds(20, 20, 100, 20);
 		panel.add(label);
-		Button btn = new Button("HI");
+		Button btn = new Button("Sample Button");
 		btn.setBounds(20, 40, 100, 20);
 		panel.add(btn);
 		panel.setLayout(null);
