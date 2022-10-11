@@ -9,11 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class manageBookPanel implements PanelService {
+public class ManageBookPanel implements PanelService {
 	private Panel panel;
 	private Label label;
 	private TextField tf;
-	public manageBookPanel() {
+	public ManageBookPanel() {
 		panel = new Panel(); 
 		panel.setBackground(Color.gray);
 		panel.setBounds(20, 20, 960, 940);
@@ -40,9 +40,9 @@ public class manageBookPanel implements PanelService {
 	private class ButtonClickListener implements ActionListener{
 	      public void actionPerformed(ActionEvent e) {
 	    	  if(tf.getText().equals("12345"))
-	    		  panel.add(new addBookPanel().getPanel());
+	    		  panel.add(new AddBookPanel().getPanel());
 	    	  else
-	    		  panel.add(new updateBookPanel().getPanel());
+	    		  panel.add(new UpdateBookPanel().getPanel());
 	      }		
 	   }
 

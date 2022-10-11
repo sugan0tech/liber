@@ -7,13 +7,13 @@ import java.awt.Button;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-public class returnBookPanel implements PanelService{
+public class ReturnBookPanel implements PanelService{
 
 	private Panel panel;
 	private Label label;
 	private Button button;
 	private TextField textField;
-	public returnBookPanel() {
+	public ReturnBookPanel() {
 		panel = new Panel(); 
 		panel.setBackground(Color.gray);
 		panel.setBounds(20, 20, 960, 940);
@@ -35,7 +35,7 @@ public class returnBookPanel implements PanelService{
 		    		System.out.println("All clear");
 		    	}
 		    	else {
-		    	panel.add(new finePanel().getPanel());
+		    	panel.add(new FinePanel().getPanel());
 		    	}
 	        }    
 	    });  

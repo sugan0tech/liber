@@ -6,7 +6,7 @@ import java.awt.Label;
 import java.awt.Panel;
 
 
-public class finePanel implements PanelService {
+public class FinePanel implements PanelService {
 	private Panel panel;
 	private Label noLabel;
 	private Label nameLabel;
@@ -15,7 +15,7 @@ public class finePanel implements PanelService {
 	private Label returnLabel;
 	private Label returndateLabel;
 	
-	public finePanel() {
+	public FinePanel() {
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#d8d9cf"));
 		panel.setBounds(0, 160, 960, 940);
