@@ -24,16 +24,16 @@ public class LoginPanel implements PanelService {
 	private Button submitButton;
 	public LoginPanel(LiberManagementSystem liberManagementSystem) {
 		panel = new Panel(); 
-		panel.setBackground(Color.gray);
+		panel.setBackground(Color.decode("#FF8787"));
 		panel.setBounds(20, 20, 960, 940);
 		if(liberManagementSystem.getFlag()) {
 			Label label = new Label("Already Logged In");
-			label.setBounds(20, 40, 120, 30);
+			label.setBounds(20, 50, 300, 50);
 			panel.add(label);
 
 		}else {
 			label = new Label("Login");
-			label.setBounds(20, 20, 100, 30);
+			label.setBounds(20, 40, 100, 30);
 		
 			nameLabel = new Label("Enter the user name :");
 			nameLabel.setBounds(20, 80, 200, 30);
@@ -59,6 +59,7 @@ public class LoginPanel implements PanelService {
 						liberManagementSystem.setFlag(flag);
 						if(flag) {
 							panel.removeAll();
+							
 							label = new Label("Logged in");
 							label.setBounds(20, 20, 100, 30);
 							panel.add(label);

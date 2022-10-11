@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.Component;
 import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -11,17 +10,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import panel.LoginPanel;
+import panel.LogoutPanel;
 import panel.ManageBookPanel;
 import panel.ReturnBookPanel;
 import panel.Sample;
-import repository.LiberMainJDBC;
-import repository.LoginRepository;
+
 
 public class LiberManagementSystem {
 
 	private boolean sessionFlag = false;
 	
-
 	public static void main(String[] args) throws Exception {
 		LiberManagementSystem liberManagementSystem = new LiberManagementSystem();
 		Frame frame = new Frame();
@@ -37,6 +35,8 @@ public class LiberManagementSystem {
 		menu.add(bookReturn);
 		MenuItem bookIssue = new MenuItem("book issue");
 		menu.add(bookIssue);
+		MenuItem logout = new MenuItem("Logout");
+		menu.add(logout);
 		
 		login.addActionListener(new ActionListener() {
 			@Override
@@ -52,7 +52,7 @@ public class LiberManagementSystem {
 			public void actionPerformed(ActionEvent e) {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
-				frame.add(new ManageBookPanel().getPanel());
+				frame.add(new ManageBookPanel(liberManagementSystem).getPanel());
 				
 			}
 		});
@@ -62,6 +62,16 @@ public class LiberManagementSystem {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new ReturnBookPanel().getPanel());
+			}
+		});
+		
+		logout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Panel comp = (Panel) frame.getComponentAt(20, 20);
+				frame.remove(comp);
+				liberManagementSystem.setFlag(false);
+				frame.add(new LogoutPanel(liberManagementSystem).getPanel());
 			}
 		});
 		bar.add(menu);

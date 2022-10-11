@@ -8,6 +8,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import main.LiberManagementSystem;
 import repository.bookRepository;
 
 
@@ -16,12 +17,12 @@ public class ManageBookPanel implements PanelService {
 	private Label label;
 	private TextField tf;
 	bookRepository obj = new bookRepository();
-	public ManageBookPanel() {
+	public ManageBookPanel(LiberManagementSystem liberManagementSystem) {
 		panel = new Panel(); 
-		panel.setBackground(Color.gray);
+		panel.setBackground(Color.decode("#E26868"));
 		panel.setBounds(20, 20, 960, 940);
 		panel.setLayout(null);
-		
+		if(liberManagementSystem.getFlag()) {
 		label = new Label("Enter ISBN Number");
 		label.setBounds(100, 70, 100, 20);
 		panel.add(label);
@@ -37,6 +38,12 @@ public class ManageBookPanel implements PanelService {
 		button.addActionListener(new ButtonClickListener()); 
         
 		panel.add(button);
+		}
+		else {
+			Label label = new Label("Please Log in to access the features!");
+			label.setBounds(20, 50, 300, 50);
+			panel.add(label);
+		}
 		
 		
 	}

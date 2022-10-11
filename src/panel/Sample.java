@@ -1,23 +1,30 @@
 package panel;
 
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
-
+import java.awt.Font;
 public class Sample implements PanelService {
 	private Panel panel;
 	private Label label;
 	public Sample() {
 		panel = new Panel(); 
-		panel.setBackground(Color.green);
+		panel.setBackground(Color.decode("#FF8787"));
 		panel.setBounds(20, 20, 960, 940);
-		label = new Label("Sample Label");
-		label.setBounds(20, 20, 100, 20);
+		
+		label = new Label("Welcome to LIBER");
+		label.setBounds(20, 40, 500, 20);
 		panel.add(label);
-		Button btn = new Button("Sample Button");
-		btn.setBounds(20, 40, 100, 20);
-		panel.add(btn);
+		
+		Label desc = new Label("Library Management System");
+		desc.setBounds(20, 65, 500, 20);
+		panel.add(desc);
+		Font myFont = new Font("Serif",Font.ITALIC,15);
+		desc.setFont(myFont);
+		
+		Font myFont1 = new Font("Serif",Font.BOLD,22);
+		label.setFont(myFont1);
+		
 		panel.setLayout(null);
 	}
 
