@@ -8,6 +8,9 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import repository.LiberMainJDBC;
+import repository.LoginRepository;
+
 public class LoginPanel implements PanelService {
 	private Panel panel;
 	private Label label;
@@ -41,9 +44,8 @@ public class LoginPanel implements PanelService {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println("Login button triggered");
-				
+				LoginRepository loginRepository = new LoginRepository();
+				loginRepository.Login(new LiberMainJDBC(), userNameField.getText(), userPasswordField.getText());
 			}
 		});
 		

@@ -14,13 +14,15 @@ import panel.LoginPanel;
 import panel.ManageBookPanel;
 import panel.ReturnBookPanel;
 import panel.Sample;
+import repository.LiberMainJDBC;
+import repository.LoginRepository;
 
 public class LiberManagementSystem {
 
 	private static boolean sessionFlag = false;
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Frame frame = new Frame();
 		// sample panel will be removed
 		
@@ -69,6 +71,8 @@ public class LiberManagementSystem {
 		bar.add(menu);
 
 		frame.add(new Sample().getPanel());
+		
+		LoginRepository test = new LoginRepository(new LiberMainJDBC(), "selva", "selva");
 		
 		// set border size as 20 for each panel
 		frame.setSize(1000, 1000);

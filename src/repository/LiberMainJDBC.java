@@ -3,7 +3,7 @@ package repository;
 import java.sql.*;
 
 public class LiberMainJDBC {
-	   static final String DB_URL = "jdbc:mysql://localhost/employees";
+	   static final String DB_URL = "jdbc:mysql://localhost/LiberMain";
 	   static final String USER = "sugan";
 	   static final String PASS = "1234";
 
