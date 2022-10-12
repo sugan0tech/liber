@@ -30,7 +30,7 @@ public class ReturnBookPanel implements PanelService{
 		panel.add(textField);
 		
 		button=new Button("Enter");
-		button.setBounds(50,150,60,20);
+		button.setBounds(50,120,60,20);
 		panel.add(button);
 		button.addActionListener(new ActionListener() {    
 		    public void actionPerformed (ActionEvent e) {  
