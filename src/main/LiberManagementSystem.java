@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import panel.CheckStudentPanel;
+import panel.IssueBookPanel;
 import panel.LoginPanel;
 import panel.LogoutPanel;
 import panel.ManageBookPanel;
@@ -62,6 +65,15 @@ public class LiberManagementSystem {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new ReturnBookPanel(liberManagementSystem).getPanel());
+			}
+		});
+		bookIssue.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Panel comp = (Panel) frame.getComponentAt(20, 20);
+				frame.remove(comp);
+				frame.add(new CheckStudentPanel().getPanel());
 			}
 		});
 		

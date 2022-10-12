@@ -40,7 +40,7 @@ public class ManageBookPanel implements PanelService {
 		panel.add(button);
 		}
 		else {
-			Label label = new Label("Please Log in to access the features!");
+			label = new Label("Please Log in to access the features!");
 			label.setBounds(20, 50, 300, 50);
 			panel.add(label);
 		}

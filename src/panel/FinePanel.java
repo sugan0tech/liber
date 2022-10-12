@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;  
 import java.text.ParseException;   
-import java.util.Date;   
+import java.util.Date;
+
+import repository.LiberMainJDBC;
 import repository.StudentRepository;
 
 public class FinePanel implements PanelService {
@@ -22,8 +24,8 @@ public class FinePanel implements PanelService {
 	private Label returndateLabel,fineLabel,fineamt;
 	private Button button;
 	
-	public FinePanel(String roll_no) {
-		StudentRepository obj=new StudentRepository();
+	public FinePanel(String roll_no) throws Exception{
+		StudentRepository obj=new StudentRepository(new LiberMainJDBC());
 		String dates[]=obj.getReturnDate(roll_no);
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#D8D9CF"));

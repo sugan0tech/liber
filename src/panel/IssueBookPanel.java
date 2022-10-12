@@ -10,73 +10,72 @@ import java.awt.PopupMenu;
 import java.awt.Font;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import repository.LiberMainJDBC;
+import repository.StudentRepository;
+import repository.bookRepository;
 
 public class IssueBookPanel implements PanelService{
-		    
-		    private Panel panel;
-			private Label title,id;
-			private TextField t;
-		    private Button b;
-		    
-		    public 	IssueBookPanel(){
-		    	
-		    	Font titleFont = new Font("arial",Font.BOLD,25);
-		        Font labelFont = new Font("arial",Font.PLAIN,18);
-		        Font textFont = new Font("arial",Font.PLAIN,18);
 
-		    	
-		    	Color formColor = new Color(224, 255, 255);
-		    	panel = new Panel();
-		        panel.setBackground(formColor);
-				panel.setBounds(20, 20, 960, 940);
-				
-				title = new Label("LIBER");
-				title.setFont(titleFont);
-				title.setForeground(Color.BLUE);
-				panel.add(title);
-				
-				id = new Label("Student ID");
-				id.setFont(textFont);
-		        id.setForeground(Color.GRAY);
-				panel.add(id);
-				
-				t = new TextField(20);
-				panel.add(t);
+	private Panel panel;
+	private TextField ISBN;
+	private TextField rollNo;
+	private TextField dueDate;
+	public IssueBookPanel(LiberMainJDBC liberMainJDBC) {
+		panel = new Panel(); 
+		panel.setBackground(Color.decode("#D8D9CF"));
+		panel.setBounds(0, 160, 960, 940);
+		panel.setLayout(null);
+		
+		Label ISBNLabel = new Label("ISBN Number");
+		ISBNLabel.setBounds(100, 90, 100, 20);
 
-		        b = new Button("Check");
-		        b.setFont(labelFont);
-		        b.setForeground(Color.BLUE);
-		        panel.add(b);
-		        
-		        title.setBounds(100, 40, 400, 50);
-		        id.setBounds(70,90,90,60);
-		        t.setBounds(180,100,150,30);
-		        b.setBounds(160,150,70,40);
-				panel.setLayout(null);
-				
-				PopupMenu popupmenu = new PopupMenu("Edit"); 
+		ISBN = new TextField();
+		ISBN.setBounds(210,90,200,30);
+		
+		Label rollNoLabel = new Label("rollNo");
+		rollNoLabel.setBounds(100, 130, 100, 20);
 
-		        MenuItem cut = new MenuItem("Verified Successfully");  
-		        cut.setActionCommand("Verified Successfully");
-		        b.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						// TODO Auto-generated method stub
-		                popupmenu.show(panel, 20, 20); 
-					}
-				});
-		        panel.addMouseListener(new MouseAdapter() {  
-		            public void mouseClicked(MouseEvent e) {              
-		                popupmenu.show(panel, e.getX(), e.getY()); 
-		            }                 
-		        });  
-		        panel.add(popupmenu)		;  
-			}
+		rollNo = new TextField();
+		rollNo.setBounds(210,130,200,30);
+		
+		Label dueDateLabel = new Label("dueDate");
+		dueDateLabel.setBounds(100, 170, 100, 20);
 
+		dueDate= new TextField();
+		dueDate.setBounds(210,170,200,30);
+		
+		Button button = new Button("Submit");
+		button.setBounds(300,290, 100,30);
+		button.addActionListener(new ActionListener() {
+			
 			@Override
-			public Panel getPanel() {
-				return this.panel;
+			public void actionPerformed(ActionEvent e) {
+				try {
+					StudentRepository studentRepository = new StudentRepository(liberMainJDBC);
+					studentRepository.addStudent(rollNo.getText(), ISBN.getText(), dueDate.getText());
+				}catch(Exception ex) {
+					System.out.println(ex);
+				}
 			}
+		}); 
+        
+		panel.add(ISBNLabel);
+		panel.add(ISBN);
+		panel.add(rollNoLabel);
+		panel.add(rollNo);
+		panel.add(dueDateLabel);
+		panel.add(dueDate);
+		panel.add(button);
+		
+		
+	}
+
+	@Override
+	public Panel getPanel() {
+		return this.panel;
+	}
 }
 

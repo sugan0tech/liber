@@ -37,7 +37,11 @@ public class ReturnBookPanel implements PanelService{
 			button.addActionListener(new ActionListener() {    
 			    public void actionPerformed (ActionEvent e) {  
 			    	
+			    	try {
 			    	panel.add(new FinePanel(textField.getText()).getPanel());
+			    	}catch(Exception er){
+			    		System.out.println(er);
+			    	}
 			    	
 	    	    }    
 	    	});  

@@ -43,6 +43,18 @@ public class bookRepository {
 			System.out.println(e);
 		}
 	}
+	public void issueBook(String ISBN) {
+		try {
+			Statement stmt = liber.getStatement();
+			String query = "update book set stock = stock - 1 where ISBN = '" + ISBN + "'";
+			int status = stmt.executeUpdate(query);
+			if(status == 1) {
+				System.out.println("Stock Updated Successfully!");
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
 	public boolean checkBook(String ISBN) {
 		try {
 			Statement stmt = liber.getStatement();
