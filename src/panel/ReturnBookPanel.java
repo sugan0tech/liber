@@ -1,6 +1,8 @@
 package panel;
 
 import java.awt.Color;
+
+
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Button;
@@ -14,29 +16,27 @@ public class ReturnBookPanel implements PanelService{
 	private Button button;
 	private TextField textField;
 	public ReturnBookPanel() {
+		//StudentRepository obj=new StudentRepository();
 		panel = new Panel(); 
 		panel.setBackground(Color.gray);
 		panel.setBounds(20, 20, 960, 940);
 		label = new Label("Enter your Roll.no:");
-		label.setBounds(20, 20, 100, 20);
+		label.setBounds(20, 80, 100, 20);
 		panel.add(label);
 		panel.setLayout(null);
 		
 		textField=new TextField();
-		textField.setBounds(200,20,200,20);
+		textField.setBounds(200,80,200,20);
 		panel.add(textField);
 		
 		button=new Button("Enter");
-		button.setBounds(50,50,60,20);
+		button.setBounds(50,150,60,20);
 		panel.add(button);
 		button.addActionListener(new ActionListener() {    
 		    public void actionPerformed (ActionEvent e) {  
-		    	if(textField.getText().equals("145")) {
-		    		System.out.println("All clear");
-		    	}
-		    	else {
-		    	panel.add(new FinePanel().getPanel());
-		    	}
+		    	
+		    	panel.add(new FinePanel(textField.getText()).getPanel());
+		    	
 	        }    
 	    });  
 		

@@ -1,10 +1,15 @@
 package panel;
 
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+
+import repository.StudentRepository;
 
 public class FinePanel implements PanelService {
 	private Panel panel;
@@ -14,8 +19,11 @@ public class FinePanel implements PanelService {
 	private Label issuedateLabel;
 	private Label returnLabel;
 	private Label returndateLabel;
+	private Button button;
 	
-	public FinePanel() {
+	public FinePanel(String roll_no) {
+		StudentRepository obj=new StudentRepository();
+		String dates[]=obj.getReturnDate(roll_no);
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#d8d9cf"));
 		panel.setBounds(0, 160, 960, 940);
@@ -25,7 +33,7 @@ public class FinePanel implements PanelService {
 		panel.add(noLabel);
 		panel.setLayout(null);
 		
-		nameLabel = new Label("145");
+		nameLabel = new Label(roll_no);
 		nameLabel.setBounds(110, 100, 80, 20);
 		panel.add(nameLabel);
 		
@@ -33,7 +41,7 @@ public class FinePanel implements PanelService {
 		issueLabel.setBounds(20, 130, 80, 20);
 		panel.add(issueLabel);
 		
-		issuedateLabel = new Label("10/10/2022");
+		issuedateLabel = new Label(dates[0]);
 		issuedateLabel.setBounds(110, 130, 80, 20);
 		panel.add(issuedateLabel);
 		
@@ -41,9 +49,20 @@ public class FinePanel implements PanelService {
 		returnLabel.setBounds(20, 160, 80, 20);
 		panel.add(returnLabel);
 		
-		returndateLabel = new Label("10/10/2022");
+		returndateLabel = new Label(dates[1]);
 		returndateLabel.setBounds(110, 160, 80, 20);
 		panel.add(returndateLabel);
+		
+		button=new Button("Clear");
+		button.setBounds(20,190,60,20);
+		panel.add(button);
+		button.addActionListener(new ActionListener() {    
+		    public void actionPerformed (ActionEvent e) {  
+		    	
+		    	obj.clear(roll_no);
+		    	
+	        }    
+	    });  
 		
 		
 		
