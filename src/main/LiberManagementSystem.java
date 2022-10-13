@@ -73,7 +73,7 @@ public class LiberManagementSystem {
 			public void actionPerformed(ActionEvent e) {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
-				frame.add(new CheckStudentPanel().getPanel());
+				frame.add(new CheckStudentPanel(liberManagementSystem).getPanel());
 			}
 		});
 		
