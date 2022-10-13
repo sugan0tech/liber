@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import main.LiberManagementSystem;
 import repository.LiberMainJDBC;
@@ -48,10 +46,8 @@ public class LoginPanel implements PanelService {
 			
 			submitButton = new Button("Login");
 			submitButton.setBounds(140, 230, 60, 30);
-			submitButton.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			submitButton.addActionListener(
+				event ->  {
 	
 						LoginRepository loginRepository = new LoginRepository();
 						boolean flag =  loginRepository.Login(new LiberMainJDBC(), userNameField.getText(), userPasswordField.getText());
@@ -64,7 +60,7 @@ public class LoginPanel implements PanelService {
 							panel.add(label);
 						}
 				}
-			});
+			);
 			
 	
 				panel.add(label);

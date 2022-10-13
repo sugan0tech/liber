@@ -5,8 +5,6 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;  
 import java.text.ParseException;   
 import java.util.Date;
@@ -89,13 +87,13 @@ public class FinePanel implements PanelService {
 		button=new Button("Clear");
 		button.setBounds(20,220,60,20);
 		panel.add(button);
-		button.addActionListener(new ActionListener() {    
-		    public void actionPerformed (ActionEvent e) {  
+		button.addActionListener(
+		    event -> {  
 		    	
 		    	obj.clear(roll_no);
 		    	
 	        }    
-	    });  
+	    );  
 		
 		
 		

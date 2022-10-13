@@ -1,17 +1,12 @@
 package panel;
 
 import java.awt.Color;
-
-
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Button;
 import java.awt.TextField;
-import java.awt.event.ActionListener;
-
 import main.LiberManagementSystem;
 
-import java.awt.event.ActionEvent;
 public class ReturnBookPanel implements PanelService{
 
 	private Panel panel;
@@ -19,7 +14,6 @@ public class ReturnBookPanel implements PanelService{
 	private Button button;
 	private TextField textField;
 	public ReturnBookPanel(LiberManagementSystem liberManagementSystem) {
-		//StudentRepository obj=new StudentRepository();
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#E26868"));
 		panel.setBounds(20, 20, 960, 940);
@@ -34,8 +28,8 @@ public class ReturnBookPanel implements PanelService{
 		
 			button=new Button("Enter");
 			button.setBounds(50,120,60,20);
-			button.addActionListener(new ActionListener() {    
-			    public void actionPerformed (ActionEvent e) {  
+			button.addActionListener(
+			    event ->  {  
 			    	
 			    	try {
 			    	panel.add(new FinePanel(textField.getText()).getPanel());
@@ -44,14 +38,14 @@ public class ReturnBookPanel implements PanelService{
 			    	}
 			    	
 	    	    }    
-	    	});  
+	    	);  
 	
 			panel.add(label);
 			panel.add(textField);
 			panel.add(button);
 		}
 		else {
-			Label label = new Label("Please Log in to access the features!");
+			label = new Label("Please Log in to access the features!");
 			label.setBounds(20, 50, 300, 50);
 			panel.add(label);
 		}

@@ -48,42 +48,35 @@ public class LiberManagementSystem {
 			}
 		});
 		
-		bookManager.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		bookManager.addActionListener(event ->{
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new ManageBookPanel(liberManagementSystem).getPanel());
-				
 			}
-		});
-		bookReturn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		);
+		bookReturn.addActionListener(
+			event ->  {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new ReturnBookPanel(liberManagementSystem).getPanel());
 			}
-		});
-		bookIssue.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		);
+		bookIssue.addActionListener(
+			event  -> {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				frame.add(new CheckStudentPanel(liberManagementSystem).getPanel());
 			}
-		});
+		);
 		
-		logout.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		logout.addActionListener(
+			event -> {
 				Panel comp = (Panel) frame.getComponentAt(20, 20);
 				frame.remove(comp);
 				liberManagementSystem.setFlag(false);
 				frame.add(new LogoutPanel(liberManagementSystem).getPanel());
 			}
-		});
+		);
 		bar.add(menu);
 
 		frame.add(new Sample().getPanel());

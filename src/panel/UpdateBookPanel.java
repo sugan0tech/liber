@@ -1,14 +1,11 @@
 package panel;
 
 import repository.BookRepository;
-
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 
@@ -48,17 +45,14 @@ public class UpdateBookPanel implements PanelService {
 		button.setBounds(320,170, 100,30);
 		button.setVisible(true);
 		
-		button.addActionListener(new ButtonClickListener()); 
+		button.addActionListener(event -> 
+	    	  obj.updateStock(ISBN.getText(), stock.getText())
+		); 
         
 		panel.add(button);
 		
 		
 	}
-	private class ButtonClickListener implements ActionListener{
-	      public void actionPerformed(ActionEvent e) {
-	    	  obj.updateStock(ISBN.getText(), stock.getText());
-	      }		
-	   }
 
 	@Override
 	public Panel getPanel() {

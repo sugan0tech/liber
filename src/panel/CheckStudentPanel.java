@@ -6,8 +6,6 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.Button;
-import java.awt.event.*;
-
 import main.LiberManagementSystem;
 import repository.LiberMainJDBC;
 import repository.StudentRepository;
@@ -40,10 +38,8 @@ public class CheckStudentPanel implements PanelService{
 
 		        button = new Button("Check");
 		        button.setBounds(220,130,50,30);
-		        button.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
+		        button.addActionListener(
+					event  -> {
 						try {
 						boolean status = new StudentRepository(new LiberMainJDBC()).contains(textField.getText());
 						if(status) {
@@ -55,7 +51,7 @@ public class CheckStudentPanel implements PanelService{
 							System.out.println(er);
 						}
 					}
-				});
+				);
 				panel.add(title);
 				panel.add(id);
 				panel.add(textField);

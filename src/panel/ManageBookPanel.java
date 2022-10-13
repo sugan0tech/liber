@@ -5,9 +5,6 @@ import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import main.LiberManagementSystem;
 import repository.BookRepository;
 
@@ -35,7 +32,12 @@ public class ManageBookPanel implements PanelService {
 		button.setBounds(350,90, 100,30);
 		button.setVisible(true);
 		
-		button.addActionListener(new ButtonClickListener()); 
+		button.addActionListener(event -> {
+	    	  if(obj.checkBook(tf.getText()))
+	    		  panel.add(new UpdateBookPanel(tf.getText()).getPanel());
+	    	  else
+	    		  panel.add(new AddBookPanel().getPanel());
+		}); 
         
 		panel.add(button);
 		}
@@ -47,14 +49,6 @@ public class ManageBookPanel implements PanelService {
 		
 		
 	}
-	private class ButtonClickListener implements ActionListener{
-	      public void actionPerformed(ActionEvent e) {
-	    	  if(obj.checkBook(tf.getText()))
-	    		  panel.add(new UpdateBookPanel(tf.getText()).getPanel());
-	    	  else
-	    		  panel.add(new AddBookPanel().getPanel());
-	      }		
-	   }
 
 	@Override
 	public Panel getPanel() {

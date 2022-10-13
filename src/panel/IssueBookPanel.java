@@ -6,7 +6,6 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.Button;
-import java.awt.event.*;
 import repository.LiberMainJDBC;
 import repository.StudentRepository;
 
@@ -42,10 +41,8 @@ public class IssueBookPanel implements PanelService{
 		
 		Button button = new Button("Submit");
 		button.setBounds(300,290, 100,30);
-		button.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		button.addActionListener(
+			event ->  {
 				try {
 					StudentRepository studentRepository = new StudentRepository(liberMainJDBC);
 					studentRepository.addStudent(rollNo.getText(), isbnTextField.getText(), dueDate.getText());
@@ -53,7 +50,7 @@ public class IssueBookPanel implements PanelService{
 					System.out.println(ex);
 				}
 			}
-		}); 
+		); 
         
 		panel.add(ISBNLabel);
 		panel.add(isbnTextField);
