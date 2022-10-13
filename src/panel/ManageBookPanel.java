@@ -9,14 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import main.LiberManagementSystem;
-import repository.bookRepository;
+import repository.BookRepository;
 
 
 public class ManageBookPanel implements PanelService {
 	private Panel panel;
 	private Label label;
 	private TextField tf;
-	bookRepository obj = new bookRepository();
+	BookRepository obj = new BookRepository();
 	public ManageBookPanel(LiberManagementSystem liberManagementSystem) {
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#E26868"));

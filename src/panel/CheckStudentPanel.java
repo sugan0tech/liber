@@ -6,15 +6,11 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.Button;
-import java.awt.PopupMenu;
-import java.awt.Font;
-import java.awt.*;
 import java.awt.event.*;
 
 import main.LiberManagementSystem;
 import repository.LiberMainJDBC;
 import repository.StudentRepository;
-import repository.bookRepository;
 
 public class CheckStudentPanel implements PanelService{
 		    
@@ -24,7 +20,6 @@ public class CheckStudentPanel implements PanelService{
 			private Label label;
 			private TextField textField;
 		    private Button button;
-		    private StudentRepository studentRepository;
 		    public 	CheckStudentPanel(LiberManagementSystem liberManagementSystem){
 		    	
 		    	

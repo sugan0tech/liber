@@ -3,9 +3,7 @@ package panel;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.Panel;
-
 import main.LiberManagementSystem;
-import repository.LiberMainJDBC;
 
 
 public class LogoutPanel implements PanelService {

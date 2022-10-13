@@ -2,7 +2,6 @@ package panel;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
@@ -27,7 +26,7 @@ public class LoginPanel implements PanelService {
 		panel.setBackground(Color.decode("#FF8787"));
 		panel.setBounds(20, 20, 960, 940);
 		if(liberManagementSystem.getFlag()) {
-			Label label = new Label("Already Logged In");
+			label = new Label("Already Logged In");
 			label.setBounds(20, 50, 300, 50);
 			panel.add(label);
 

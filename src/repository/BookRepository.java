@@ -1,8 +1,7 @@
 package repository;
-import repository.LiberMainJDBC;
 import java.sql.*;
 
-public class bookRepository {
+public class BookRepository {
 	LiberMainJDBC liber = new LiberMainJDBC();
 	public void addBook(String ISBN, String name, String author, String publishedYear, String stock) {
 		try {

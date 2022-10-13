@@ -6,21 +6,14 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.Button;
-import java.awt.PopupMenu;
-import java.awt.Font;
-import java.awt.*;
 import java.awt.event.*;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 import repository.LiberMainJDBC;
 import repository.StudentRepository;
-import repository.bookRepository;
 
 public class IssueBookPanel implements PanelService{
 
 	private Panel panel;
-	private TextField ISBN;
+	private TextField isbnTextField;
 	private TextField rollNo;
 	private TextField dueDate;
 	public IssueBookPanel(LiberMainJDBC liberMainJDBC) {
@@ -32,8 +25,8 @@ public class IssueBookPanel implements PanelService{
 		Label ISBNLabel = new Label("ISBN Number");
 		ISBNLabel.setBounds(100, 90, 100, 20);
 
-		ISBN = new TextField();
-		ISBN.setBounds(210,90,200,30);
+		isbnTextField = new TextField();
+		isbnTextField.setBounds(210,90,200,30);
 		
 		Label rollNoLabel = new Label("rollNo");
 		rollNoLabel.setBounds(100, 130, 100, 20);
@@ -55,7 +48,7 @@ public class IssueBookPanel implements PanelService{
 			public void actionPerformed(ActionEvent e) {
 				try {
 					StudentRepository studentRepository = new StudentRepository(liberMainJDBC);
-					studentRepository.addStudent(rollNo.getText(), ISBN.getText(), dueDate.getText());
+					studentRepository.addStudent(rollNo.getText(), isbnTextField.getText(), dueDate.getText());
 				}catch(Exception ex) {
 					System.out.println(ex);
 				}
@@ -63,7 +56,7 @@ public class IssueBookPanel implements PanelService{
 		}); 
         
 		panel.add(ISBNLabel);
-		panel.add(ISBN);
+		panel.add(isbnTextField);
 		panel.add(rollNoLabel);
 		panel.add(rollNo);
 		panel.add(dueDateLabel);

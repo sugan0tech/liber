@@ -1,5 +1,5 @@
 package panel;
-import repository.bookRepository;
+import repository.BookRepository;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
@@ -66,7 +66,7 @@ public class AddBookPanel implements PanelService {
 	private class ButtonClickListener implements ActionListener{
 	      public void actionPerformed(ActionEvent e) {
 	    	  
-	    	  bookRepository obj = new bookRepository();
+	    	  BookRepository obj = new BookRepository();
 	    	  obj.addBook(ISBN.getText(), name.getText(), author.getText(), publishedYear.getText(),stock.getText());
 	      }		
 	   }

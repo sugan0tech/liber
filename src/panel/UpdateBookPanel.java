@@ -1,6 +1,6 @@
 package panel;
 
-import repository.bookRepository;
+import repository.BookRepository;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -16,7 +16,7 @@ public class UpdateBookPanel implements PanelService {
 	private Panel panel;
 	private Label ISBN;
 	private TextField stock;
-	bookRepository obj = new bookRepository();
+	BookRepository obj = new BookRepository();
 	public UpdateBookPanel(String ISBN_Number) {
 		panel = new Panel(); 
 		panel.setBackground(Color.decode("#D8D9CF"));

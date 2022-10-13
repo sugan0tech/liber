@@ -1,6 +1,5 @@
 package repository;
 import java.sql.*;
-import java.util.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -13,10 +12,10 @@ public class StudentRepository {
 		this.liberMainJDBC = liberMainJDBC;
 		this.statement = this.liberMainJDBC.getStatement();
 	}
-	public void addStudent(String rollNo, String ISBN, String dueDate) {
+	public void addStudent(String rollNo, String isbnValue, String dueDate) {
 		try {
 			Statement stmt=liberMainJDBC.getStatement();
-			query="insert into transaction (roll_no, ISBN, issue_date, due_date )values (\"" + rollNo + "\", \"" + ISBN + "\",\"" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\",  \"" + dueDate + "\");" ;
+			query="insert into transaction (roll_no, ISBN, issue_date, due_date )values (\"" + rollNo + "\", \"" + isbnValue + "\",\"" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())+"\",  \"" + dueDate + "\");" ;
 			System.out.println(query);
 			stmt.executeUpdate(query);
 		}catch(Exception e) {
